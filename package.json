@@ -1,0 +1,25 @@
+{
+  "name": "@tavardt/guia-tecnico-lgpd-automacao",
+  "version": "1.0.0",
+  "description": "Guia técnico de conformidade LGPD, Google Consent Mode v2 e auditoria de segurança perimetral para desenvolvedores no Brasil.",
+  "main": "bin/tavardt-lgpd.js",
+  "bin": {
+    "tavardt-lgpd": "bin/tavardt-lgpd.js"
+  },
+  "keywords": [
+    "lgpd",
+    "consent-mode-v2",
+    "ciberseguranca",
+    "dmarc",
+    "security-headers",
+    "privacidade",
+    "tavardt"
+  ],
+  "author": "TAVARDT Brasil <tecnico@tavardt.com> (https://ag.tavardt.com/br/)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TAVARDT-Brasil/guia-tecnico-lgpd-automacao.git"
+  },
+  "homepage": "https://tools.tavardt.com/br/validador-consent-mode-v2-lgpd/"
+}
