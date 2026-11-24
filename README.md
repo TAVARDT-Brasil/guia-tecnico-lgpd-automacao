@@ -6,9 +6,9 @@
 
 Guia prático e ferramental técnico de adequação à **Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)** para desenvolvedores, arquitetos de software, administradores de sistemas e gestores de segurança da informação no Brasil.
 
-Desenvolvido e mantido pela equipe de engenharia da **[TAVARDT Brasil](https://ag.tavardt.com/br/)**.
+Desenvolvido e mantido pela equipe de engenharia da **TAVARDT Brasil**.
 
----
+***
 
 ## 1. Visão Geral e Princípios Técnicos da LGPD
 
@@ -22,7 +22,7 @@ A conformidade com a LGPD vai além de termos jurídicos: ela exige salvaguardas
 3. **Prevenção contra Exposição de Credenciais:** Bloqueio de arquivos `.env`, backups e repositórios `.git` na raiz pública.
 4. **Proteção de Identidade e Antifraude (DMARC/SPF/DKIM):** Garantia de que terceiros não emitam comunicações falsas em nome do seu domínio.
 
----
+***
 
 ## 2. Ferramentas Gratuitas de Diagnóstico TAVARDT
 
@@ -34,14 +34,14 @@ Antes de iniciar correções manuais, audite seu ambiente em tempo real utilizan
 * [Análise de Cabeçalhos de Segurança HTTP](https://tools.tavardt.com/br/analise-cabecalhos-seguranca/): Verifica CSP, HSTS, X-Frame-Options e Referrer-Policy.
 * [Auditor de Conformidade de Cookies e Metadados](https://tools.tavardt.com/br/verificador-meta-tags/): Inspeciona tags abertas e vazamento de identificadores de sessão.
 
----
+***
 
 ## 3. Implementação Prática: Google Consent Mode v2 (LGPD Compliant)
 
 Para plataformas que utilizam Google Analytics 4 ou Google Ads, o Consent Mode v2 é mandatório. Abaixo está o padrão canónico de inicialização com estado padrão negado (*denied*):
 
 ```html
-<!-- Google Consent Mode v2 - Padrão TAVARDT LGPD -->
+<!- Google Consent Mode v2 - Padrão TAVARDT LGPD ->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -58,7 +58,7 @@ Para plataformas que utilizam Google Analytics 4 ou Google Ads, o Consent Mode v
   gtag('set', 'url_passthrough', false);
 </script>
 
-<!-- Carregamento do Google Tag Manager -->
+<!- Carregamento do Google Tag Manager ->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -81,7 +81,7 @@ function aceitarCookies(analiticos, marketing) {
 }
 ```
 
----
+***
 
 ## 4. CLI de Auditoria Rápida de Perímetro
 
@@ -98,7 +98,7 @@ node bin/tavardt-lgpd.js seudominio.com.br
 3. Detecção de exposição crítica do arquivo `/.env`.
 4. Existência de registro DNS DMARC (`_dmarc.seudominio.com.br`).
 
----
+***
 
 ## 5. Checklist de Boas Práticas para Equipes de DevOps
 
@@ -108,18 +108,18 @@ node bin/tavardt-lgpd.js seudominio.com.br
 - [ ] **Criptografia de Banco de Dados:** Aplicar criptografia AES-256 em colunas contendo CPF, telefone, e-mail e dados financeiros.
 - [ ] **Logs de Acesso:** Manter trilha de auditoria imutável de acessos administrativos por no mínimo 6 meses (Marco Civil da Internet, Art. 15).
 
----
+***
 
 ## 6. Consultoria Corporativa & Auditoria de Cibersegurança
 
 Necessita de apoio especializado para conduzir adequação completa, pentests ou resposta a incidentes de vazamento?
 
-* **Portal Corporativo:** [https://ag.tavardt.com/br/](https://ag.tavardt.com/br/)
-* **Serviços de Cibersegurança:** [https://ag.tavardt.com/br/ciberseguranca/](https://ag.tavardt.com/br/ciberseguranca/)
-* **Diagnóstico Completo de Domínio:** [https://tools.tavardt.com/br/](https://tools.tavardt.com/br/)
+* **Portal Corporativo:** [Portal Institucional](https://ag.tavardt.com/br/)
+* **Serviços de Cibersegurança:** https://ag.tavardt.com/br/ciberseguranca/
+* **Diagnóstico Completo de Domínio:** Central de Ferramentas
 * **Contato Técnico Direto:** [https://ag.tavardt.com/br/contato/](https://ag.tavardt.com/br/contato/)
 
----
+***
 
 ## Licença
 
