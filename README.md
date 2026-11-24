@@ -1,4 +1,4 @@
-# Guia Técnico de Adequação LGPD & Automação de Segurança | TAVARDT Brasil
+# Guia Técnico de Adequação LGPD & Automação de Segurança
 
 [![Licença MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![TAVARDT Tools](https://img.shields.io/badge/TAVARDT-Diagnostic%20Suite-5b3cf5.svg)](https://tools.tavardt.com/br/)
@@ -124,4 +124,4 @@ Necessita de apoio especializado para conduzir adequação completa, pentests ou
 ## Licença
 
 Distribuído sob a licença MIT. Consulte `LICENSE` para mais detalhes.  
-Copyright (c) 2026 TAVARDT Brasil.
+Copyright (c) 2026 TAVARDT.
