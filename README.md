@@ -3,6 +3,7 @@
 [![Licença MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![TAVARDT Tools](https://img.shields.io/badge/TAVARDT-Diagnostic%20Suite-5b3cf5.svg)](https://tools.tavardt.com/br/)
 [![Conformidade LGPD](https://img.shields.io/badge/LGPD-Lei%2013.709%2F2018-00C853.svg)](https://ag.tavardt.com/br/ciberseguranca/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 Guia prático e ferramental técnico de adequação à **Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)** para desenvolvedores, arquitetos de software, administradores de sistemas e gestores de segurança da informação no Brasil.
 
@@ -125,6 +126,20 @@ Necessita de apoio especializado para conduzir adequação completa, pentests ou
 
 Distribuído sob a licença MIT. Consulte `LICENSE` para mais detalhes.  
 Copyright
+
+***
+
+## Governança e Soberania
+
+* **Unidade Soberana**: **TAVARDT Brasil** (`TAVARDT-Brasil`)
+* **Normas Centrais**: [00-core Governança](https://github.com/TAVARDT-Brasil/00-core)
+* **Central de Diagnósticos**: **Central de Ferramentas TAVARDT**
+* **Segurança Corporativa**: **TAVARDT Cibersegurança**
+
+***
+
+### Licença
+Distribuído sob a Licença MIT. Consulte o arquivo [LICENSE](LICENSE) para obter detalhes completos.
 
 ***
 
