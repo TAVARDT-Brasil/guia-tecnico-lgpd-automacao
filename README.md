@@ -6,7 +6,7 @@
 
 Guia prático e ferramental técnico de adequação à **Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)** para desenvolvedores, arquitetos de software, administradores de sistemas e gestores de segurança da informação no Brasil.
 
-Desenvolvido e mantido pela equipe de engenharia da **TAVARDT Brasil**.
+Desenvolvido e mantido pela equipe de engenharia da **TAVARDT**.
 
 ***
 
@@ -124,4 +124,8 @@ Necessita de apoio especializado para conduzir adequação completa, pentests ou
 ## Licença
 
 Distribuído sob a licença MIT. Consulte `LICENSE` para mais detalhes.  
-Copyright (c) 2026 TAVARDT.
+Copyright
+
+***
+
+© 2026 TAVARDT. Todos os direitos reservados.
