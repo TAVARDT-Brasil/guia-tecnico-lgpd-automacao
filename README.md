@@ -1,6 +1,5 @@
 # Guia Técnico de Adequação LGPD & Automação de Segurança
 
-[![Licença MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![TAVARDT Tools](https://img.shields.io/badge/TAVARDT-Diagnostic%20Suite-5b3cf5.svg)](https://tools.tavardt.com/br/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-Node.js-yellow.svg)](https://nodejs.org/)
 [![Conformidade LGPD](https://img.shields.io/badge/LGPD-Lei%2013.709%2F2018-00C853.svg)](https://ag.tavardt.com/br/ciberseguranca/)
@@ -130,8 +129,7 @@ Necessita de apoio especializado para conduzir adequação completa, pentests ou
 ***
 
 ### Licença
-Distribuído sob a Licença MIT. Consulte o arquivo [LICENSE](LICENSE) para obter detalhes completos.
-
+Distribuído sob a Licença MIT.
 ***
 
 © 2026 TAVARDT. Todos os direitos reservados.
