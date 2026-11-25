@@ -1,53 +1,47 @@
-# Guia Técnico de Adequação LGPD & Automação de Segurança
+# Guia Técnico de Adequação LGPD e Automação de Segurança
 
 [![TAVARDT Tools](https://img.shields.io/badge/TAVARDT-Diagnostic%20Suite-5b3cf5.svg)](https://tools.tavardt.com/br/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-Node.js-yellow.svg)](https://nodejs.org/)
 [![Conformidade LGPD](https://img.shields.io/badge/LGPD-Lei%2013.709%2F2018-00C853.svg)](https://ag.tavardt.com/br/ciberseguranca/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Guia prático e ferramental técnico de adequação à **Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)** para desenvolvedores, arquitetos de software, administradores de sistemas e gestores de segurança da informação no Brasil.
+Guia prático e ferramental técnico de adequação à Lei Geral de Proteção de Dados (LGPD, Lei nº 13.709/2018) para desenvolvedores, arquitetos de software e gestores de segurança da informação no Brasil. Estrutura salvaguardas técnicas no código, contêineres de telemetria e perímetros de infraestrutura.
 
-Desenvolvido e mantido pela equipe de engenharia da **TAVARDT**.
-
-***
-
-## 1. Visão Geral e Princípios Técnicos da LGPD
-
-A conformidade com a LGPD vai além de termos jurídicos: ela exige salvaguardas arquiteturais estritas no código, nas APIs e na infraestrutura de servidores (Art. 46):
-
-> *"Os agentes de tratamento devem adotar medidas de segurança, técnicas e administrativas aptas a proteger os dados pessoais de acessos não autorizados e de situações acidentais ou ilícitas."*
-
-### Os 4 Pilares Técnicos de Auditoria:
-1. **Consentimento Explícito e Google Consent Mode v2:** Coleta de telemetria apenas após consentimento ativo do titular.
-2. **Criptografia e Segurança em Trânsito:** TLS 1.3, HSTS rígido e cabeçalhos de proteção HTTP.
-3. **Prevenção contra Exposição de Credenciais:** Bloqueio de arquivos `.env`, backups e repositórios `.git` na raiz pública.
-4. **Proteção de Identidade e Antifraude (DMARC/SPF/DKIM):** Garantia de que terceiros não emitam comunicações falsas em nome do seu domínio.
+Mantido pela equipe de engenharia e cibersegurança da **TAVARDT**.
 
 ***
 
-## 2. Ferramentas Gratuitas de Diagnóstico TAVARDT
+## 1. Arquitetura Técnica e Princípios de Segurança LGPD
 
-Antes de iniciar correções manuais, audite seu ambiente em tempo real utilizando a suíte de diagnósticos abertos da TAVARDT:
+A conformidade com o Artigo 46 da LGPD impõe a adoção de medidas técnicas e administrativas robustas para proteger dados pessoais contra acessos não autorizados. A arquitetura deste repositório consolida quatro pilares defensivos essenciais para ambientes digitais:
 
-* [Validador de Consent Mode v2 e LGPD](https://tools.tavardt.com/br/validador-consent-mode-v2-lgpd/): Analisa os sinais `ad_storage`, `analytics_storage`, `ad_user_data` e `ad_personalization`.
-* [Verificador de DMARC & Autenticação de E-mails](https://tools.tavardt.com/br/verificador-dmarc-email/): Valida políticas SPF/DKIM para evitar fraudes corporativas.
-* [Scanner de Arquivos Expostos (.env, git)](https://tools.tavardt.com/br/verificador-arquivos-expostos/): Testa se variáveis de ambiente confidenciais estão acessíveis publicamente.
-* [Análise de Cabeçalhos de Segurança HTTP](https://tools.tavardt.com/br/analise-cabecalhos-seguranca/): Verifica CSP, HSTS, X-Frame-Options e Referrer-Policy.
-* [Auditor de Conformidade de Cookies e Metadados](https://tools.tavardt.com/br/verificador-meta-tags/): Inspeciona tags abertas e vazamento de identificadores de sessão.
+* **Gerenciamento de Consentimento e Consent Mode v2**: Implementação de estado padrão negado para tags de medição e anúncios até a manifestação expressa do usuário. Essa salvaguarda impede a persistência indevida de identificadores no dispositivo do visitante.
+* **Blindagem de Tráfego e Cabeçalhos HTTP**: Inspeção automatizada de diretivas como HSTS, Content-Security-Policy, X-Frame-Options, X-Content-Type-Options e Referrer-Policy. A aplicação estrita desses cabeçalhos protege requisições contra ataques de interceptação e injeção de scripts.
+* **Detecção de Exposição Crítica de Segredos**: Varredura direta de caminhos sensíveis na raiz pública para neutralizar vazamentos de arquivos de ambiente como /.env. O acesso inadvertido a esses arquivos compromete credenciais de bancos de dados e chaves criptográficas.
+* **Autenticação de Domínio e Antifraude (DMARC)**: Resolução assíncrona de registros DNS para assegurar a presença de políticas v=DMARC1 ativas. A configuração rigorosa de DMARC mitiga ataques de phishing e falsificação de identidade institucional por agentes maliciosos.
 
 ***
 
-## 3. Implementação Prática: Google Consent Mode v2 (LGPD Compliant)
+## 2. Vetores de Risco e Impacto Operacional
 
-Para plataformas que utilizam Google Analytics 4 ou Google Ads, o Consent Mode v2 é mandatório. Abaixo está o padrão canónico de inicialização com estado padrão negado (*denied*):
+Operar sistemas com deficiências de perímetro ou rastreamento irregular acarreta penalidades regulatórias e incidentes críticos de segurança. O ferramental combate diretamente quatro vetores de vulnerabilidade:
+
+* **Sanções Administrativas da ANPD**: O tratamento de dados pessoais em desconformidade com a LGPD sujeita a organização a multas de até 2% do faturamento por infração. A implementação de consentimento explícito e salvaguardas técnicas mitiga passivos regulatórios severos.
+* **Sequestro de Sessão e Ataques de Clickjacking**: A ausência de cabeçalhos de segurança permite que invasores incorporem portais institucionais em iframes maliciosos ou realizem downgrade de conexões TLS. O isolamento do contexto de renderização neutraliza a exfiltração de credenciais de usuários.
+* **Vazamento Catastrófico de Credenciais**: A exposição pública de arquivos de configuração em rotas estáticas concede acesso direto a chaves de API e bancos de dados em produção. A validação perimetral automática detecta rotas desprotegidas antes de sua exploração por invasores.
+* **Fraudes e Falsificação de E-mails Institucionais**: A falta de registros DMARC válidos no DNS autoritativo permite o envio de mensagens forjadas em nome da empresa. A validação perimetral assegura que os servidores de e-mail rejeitem mensagens não autenticadas.
+
+***
+
+## 3. Implementação Prática e Automação de Auditoria
+
+A inicialização do Google Consent Mode v2 deve ocorrer no elemento head antes do carregamento de contêineres do Google Tag Manager ou bibliotecas de telemetria:
 
 ```html
-<!- Google Consent Mode v2 - Padrão TAVARDT LGPD ->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
 
-  // Define padrão negado antes do carregamento de qualquer script de tracking
   gtag('consent', 'default', {
     'ad_storage': 'denied',
     'analytics_storage': 'denied',
@@ -58,17 +52,11 @@ Para plataformas que utilizam Google Analytics 4 ou Google Ads, o Consent Mode v
   gtag('set', 'ads_data_redaction', true);
   gtag('set', 'url_passthrough', false);
 </script>
-
-<!- Carregamento do Google Tag Manager ->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
 ```
 
-### Atualização pós-consentimento do usuário:
-Quando o titular aceita os cookies de estatística e marketing no banner:
+### Atualização Dinâmica de Preferências
+
+Quando o visitante interage com a interface de privacidade e concede consentimento para categorias específicas:
 
 ```javascript
 function aceitarCookies(analiticos, marketing) {
@@ -82,54 +70,49 @@ function aceitarCookies(analiticos, marketing) {
 }
 ```
 
-***
+### Execução da CLI de Auditoria Perimetral
 
-## 4. CLI de Auditoria Rápida de Perímetro
+O repositório fornece uma ferramenta em Node.js para validação imediata dos parâmetros de conformidade técnica:
 
-Este repositório inclui uma ferramenta CLI em Node.js para validação imediata de segurança perimetral via terminal.
-
-### Execução Direta via NPX / Node:
 ```bash
 node bin/tavardt-lgpd.js seudominio.com.br
 ```
 
-### O que a CLI verifica:
-1. Resposta HTTPS com certificado válido.
-2. Cabeçalhos HTTP obrigatórios (HSTS, Content-Security-Policy, X-Frame-Options).
-3. Detecção de exposição crítica do arquivo `/.env`.
-4. Existência de registro DNS DMARC (`_dmarc.seudominio.com.br`).
+O utilitário inspeciona automaticamente a validade da conexão HTTPS, a emissão dos cabeçalhos defensivos HTTP, o registro DNS DMARC e o bloqueio de acesso ao arquivo /.env.
 
 ***
 
-## 5. Checklist de Boas Práticas para Equipes de DevOps
+## 4. Perguntas Frequentes (FAQ Técnico)
 
-- [ ] **Anonimização de IP:** Configurar `anonymize_ip: true` em qualquer script de coleta.
-- [ ] **Hardening de Cabeçalhos:** Garantir que o servidor web emita `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`.
-- [ ] **Bloqueio de Varreduras:** Proteger diretórios sensíveis (`/admin`, `/backup`, `/.git`) contra indexação e acesso direto no arquivo `robots.txt` e no servidor web.
-- [ ] **Criptografia de Banco de Dados:** Aplicar criptografia AES-256 em colunas contendo CPF, telefone, e-mail e dados financeiros.
-- [ ] **Logs de Acesso:** Manter trilha de auditoria imutável de acessos administrativos por no mínimo 6 meses (Marco Civil da Internet, Art. 15).
+### Como o script CLI tavardt-lgpd.js valida a segurança dos cabeçalhos HTTP em um domínio?
+O utilitário realiza requisições HTTPS para inspecionar a presença de cabeçalhos essenciais como HSTS, CSP, X-Frame-Options e Referrer-Policy. A verificação alerta os engenheiros caso qualquer diretiva de proteção esteja ausente no perímetro web.
 
-***
+### Qual a relevância técnica de configurar o Google Consent Mode v2 com estado padrão negado para a LGPD?
+A configuração padrão negada assegura que nenhum identificador publicitário ou analítico seja armazenado no dispositivo antes da manifestação do titular. Essa disciplina arquitetural garante conformidade estrita com o princípio da necessidade e com o consentimento prévio da LGPD.
 
-## 6. Consultoria Corporativa & Auditoria de Cibersegurança
+### Como o teste de exposição de arquivos de ambiente auxilia na mitigação de vazamentos de dados?
+A CLI dispara uma solicitação HTTP direta para o caminho /.env na raiz do servidor web alvo. Caso o endpoint retorne status de sucesso, o script emite um alerta crítico de vulnerabilidade para prevenir a exfiltração de segredos corporativos.
 
-Necessita de apoio especializado para conduzir adequação completa, pentests ou resposta a incidentes de vazamento?
+### Por que a verificação de registros DMARC no DNS é considerada parte dos controles de segurança da LGPD?
+A ausência de políticas DMARC permite que atacantes forjem comunicações por e-mail em nome do domínio institucional para coletar credenciais de usuários. A validação DNS assegura que provedores de e-mail rejeitem mensagens fraudulentas e protejam a integridade dos dados pessoais.
 
-* **Serviços de Cibersegurança:** https://ag.tavardt.com/br/ciberseguranca/
-* **Diagnóstico Completo de Domínio:** [Central de Ferramentas](https://tools.tavardt.com/br/)
+### Como a persistência de consentimento em armazenamento local deve ser estruturada segundo as boas práticas?
+O registro de consentimento deve salvar os estados individuais de cada categoria acompanhados de um carimbo temporal no padrão ISO. Essa estrutura permite comprovar a data e a especificação da autorização do titular perante auditorias da ANPD.
 
 ***
 
 ## Links Úteis
 
-* **Portal Corporativo:** https://ag.tavardt.com/br/
-* **Suíte de Diagnósticos:** https://tools.tavardt.com/br/
-* **Contato Técnico:** https://ag.tavardt.com/br/contato/
+* Portal Corporativo: https://ag.tavardt.com/br/
+* Suíte de Diagnósticos: https://tools.tavardt.com/br/
+* Contato Técnico: https://ag.tavardt.com/br/contato/
 
 ***
 
-### Licença
+## Licença
+
 Distribuído sob a Licença MIT.
+
 ***
 
 © 2026 TAVARDT. Todos os direitos reservados.
