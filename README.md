@@ -2,6 +2,7 @@
 
 [![Licença MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![TAVARDT Tools](https://img.shields.io/badge/TAVARDT-Diagnostic%20Suite-5b3cf5.svg)](https://tools.tavardt.com/br/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-Node.js-yellow.svg)](https://nodejs.org/)
 [![Conformidade LGPD](https://img.shields.io/badge/LGPD-Lei%2013.709%2F2018-00C853.svg)](https://ag.tavardt.com/br/ciberseguranca/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -115,17 +116,8 @@ node bin/tavardt-lgpd.js seudominio.com.br
 
 Necessita de apoio especializado para conduzir adequação completa, pentests ou resposta a incidentes de vazamento?
 
-* **Portal Corporativo:** [Portal Institucional](https://ag.tavardt.com/br/)
 * **Serviços de Cibersegurança:** https://ag.tavardt.com/br/ciberseguranca/
-* **Diagnóstico Completo de Domínio:** Central de Ferramentas
-* **Contato Técnico Direto:** [https://ag.tavardt.com/br/contato/](https://ag.tavardt.com/br/contato/)
-
-***
-
-## Licença
-
-Distribuído sob a licença MIT. Consulte `LICENSE` para mais detalhes.  
-Copyright
+* **Diagnóstico Completo de Domínio:** [Central de Ferramentas](https://tools.tavardt.com/br/)
 
 ***
 
